@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#termionate the infinite task 4 withot using kill
+pkill -f 4-to_infinity_and_beyond
