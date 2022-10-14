@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#displays bash id
+# shellcheck disable=SC2009
+
+ps faxu | grep bash
