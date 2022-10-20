@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#display all listning sockets with path info
+netstat -pl
