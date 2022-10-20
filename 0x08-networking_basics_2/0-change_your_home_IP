@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# script that edits the hosts file and change host file note that you need sudo for L6
+cp /etc/hosts ~/hosts.new
+sed -i 's/^127\.0\.0\.1\tlocalhost/127.0.0.2\tlocalhost/' ~/hosts.new
+sed -i 's/.*facebook.com/8\.8\.8\.8	facebook.com/' ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
