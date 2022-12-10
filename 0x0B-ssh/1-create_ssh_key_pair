@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # generates a new ssh key pair
 
-ssh-keygen -b 2048 -t rsa -f ./school -q -N "betty"
+ssh-keygen -b 2048 -t rsa -f ./school -N "betty"
