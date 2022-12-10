@@ -1,3 +1,4 @@
+#crates a file in /tmp that contains a string
 file { '/tmp/school':
 
   ensure  => 'present',
