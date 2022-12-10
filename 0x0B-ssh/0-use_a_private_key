@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# script to connect to a remote server with a username
+# ubuntu and privatekey in ~/.ssh/school
+
+ssh ubuntu@54.236.25.236 -i ~/.ssh/school
