@@ -1,3 +1,4 @@
+# config ssh config file
 $str = "Host 54.236.25.236
         User ubuntu
         IdentityFile ~/.ssh/school
