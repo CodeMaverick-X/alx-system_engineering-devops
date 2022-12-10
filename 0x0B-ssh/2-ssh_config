@@ -1,4 +1,4 @@
-Host 56580-web-011
+Host 54.236.25.236
 	User ubuntu
 	IdentityFile ~/.ssh/school
 	IdentitiesOnly yes
