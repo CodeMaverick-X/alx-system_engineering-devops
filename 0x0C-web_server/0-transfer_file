@@ -11,6 +11,6 @@ else
 	username=$3
 	key_path=$4
 
-	scp -o 'StrictHostKeyChecking yes' -i "$key_path" "$path_file" "$username"@"$ip_server":~/
+	scp -o 'StrictHostKeyChecking accept-new' -i "$key_path" "$path_file" "$username"@"$ip_server":~/
 
 fi
