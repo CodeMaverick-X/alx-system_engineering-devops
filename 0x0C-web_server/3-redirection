@@ -3,7 +3,6 @@
 
 apt update
 apt install -y nginx
-ufw allow 'Nginx HTTP'
 service nginx start
 chown -R "$USER":"$USER" /var/www
 echo 'Hello World!' > /usr/share/nginx/html/index.html
