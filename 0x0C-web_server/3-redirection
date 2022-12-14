@@ -9,4 +9,6 @@ echo 'Hello World!' > /usr/share/nginx/html/index.html
 
 redct="location /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
 
-sed -i "s|# SSL configuration|$redct|" /etc/nginx/sites-available/default
+sed -i "s|# concurs with nginx's one|$redct|" /etc/nginx/sites-available/default
+
+nginx -s reload
