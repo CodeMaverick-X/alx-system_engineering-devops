@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# script to install nginx on a server
+# configure response header to track server
+
+apt update
+apt install -y nginx
+service nginx start
+chown -R "$USER":"$USER" /var/www
+echo 'Hello World!' > /usr/share/nginx/html/index.html
+
+header="# Basic Settings\n\tadd_header X-Served-By `hostname`;"
+
+sed -i "s|# Basic Settings|$header|" /etc/nginx/nginx.conf
+
+nginx -s reload
