@@ -17,8 +17,8 @@ frontend haproxynode
 
 backend backendnodes
         balance roundrobin
-        server node1 54.236.25.236:80 check
-        server node2 54.173.164.226:80 check
+        server 56580-web-01 54.236.25.236:80 check
+        server 56580-web-02 54.173.164.226:80 check
 "
 
 echo "$cmd" >> /etc/haproxy/haproxy.cfg
