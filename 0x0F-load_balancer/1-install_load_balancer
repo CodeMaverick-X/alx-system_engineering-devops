@@ -4,8 +4,8 @@
 # install haproxy
 sudo apt update
 sudo apt-get install --no-install-recommends software-properties-common
-sudo add-apt-repository -y ppa:vbernat/haproxy-2.6
-sudo apt-get install haproxy=2.6.\*
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.0
+sudo apt-get install haproxy=2.0.\*
 
 # Configure HAproxy so that it send traffic to web-01 and web-02
 # distribute using round robin
