@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# script to configure a load balancer on a new server
+
+# install haproxy
+sudo apt update
+sudo apt-get install --no-install-recommends software-properties-common
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.6
+sudo apt-get install haproxy=2.6.\*
+
+# Configure HAproxy so that it send traffic to web-01 and web-02
+# distribute using round robin
+cmd="
+frontend haproxynode
+        bind *:80
+        mode http
+        default_backend backendnodes
+
+backend backendnodes
+        balance roundrobin
+        server node1 54.236.25.236:80 check
+        server node2 54.173.164.226:80 check
+"
+
+echo "$cmd" >> /etc/haproxy/haproxy.cfg
+
+sudo haproxy -f /etc/haproxy/haproxy.cfg
