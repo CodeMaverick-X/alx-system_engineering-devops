@@ -21,6 +21,7 @@ backend backendnodes
         server 56580-web-02 54.173.164.226:80 check
 "
 
+sudo chown -R "$USER":"$USER" /etc/haproxy/
 echo "$cmd" >> /etc/haproxy/haproxy.cfg
 
 sudo haproxy -f /etc/haproxy/haproxy.cfg
