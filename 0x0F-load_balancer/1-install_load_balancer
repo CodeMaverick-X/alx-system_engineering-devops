@@ -3,8 +3,6 @@
 
 # install haproxy
 sudo apt update
-sudo apt-get install --no-install-recommends software-properties-common
-sudo add-apt-repository -y ppa:vbernat/haproxy-2.6
 sudo apt-get install -y haproxy
 
 # Configure HAproxy so that it send traffic to web-01 and web-02
@@ -23,5 +21,5 @@ backend backendnodes
 
 sudo chown -R "$USER":"$USER" /etc/haproxy/
 echo "$cmd" >> /etc/haproxy/haproxy.cfg
-
+sudo mkdir /run/haproxy/
 sudo haproxy -f /etc/haproxy/haproxy.cfg
