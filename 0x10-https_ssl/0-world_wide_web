@@ -1,5 +1,5 @@
-#domain=$1
-
+#!/usr/bin/env bash
+# script taht displays the ip and record type for a domani and sub
 work() {
 a=$(dig $1.$2 type=any | awk 'NR==14{print $0}' | sed 's/ /\t/g')
 IFS="	"
