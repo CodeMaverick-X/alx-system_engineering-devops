@@ -1,0 +1,21 @@
+#domain=$1
+
+work() {
+a=$(dig $1.$2 type=any | awk 'NR==14{print $0}' | sed 's/ /\t/g')
+IFS="	"
+read -ra ARR <<< "$a"
+echo "The subdomain $1 is a ${ARR[3]} record and points to  ${ARR[4]}"
+}
+
+domain=$1
+if [ -z "$2" ]
+then
+      arr=(www lb-01 web-01 web-02)
+	  for i in ${arr[@]}
+	  do
+	  work $i $domain
+	  done
+else
+      sub=$2
+	  work $sub $domain
+fi
