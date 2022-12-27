@@ -4,7 +4,7 @@ work() {
 a=$(dig $1.$2 type=any | awk 'NR==14{print $0}' | sed 's/ /\t/g')
 IFS="	"
 read -ra ARR <<< "$a"
-echo "The subdomain $1 is a ${ARR[3]} record and points to  ${ARR[4]}"
+echo "The subdomain $1 is a ${ARR[3]} record and points to ${ARR[4]}"
 }
 
 domain=$1
