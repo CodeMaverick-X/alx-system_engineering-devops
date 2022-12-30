@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
 # fixed a web server configuration that was preventing it from listining
-# on port 80 and not accepting ipv4 address
-
-
 sudo sed -i 's/8080/80/' /etc/nginx/sites-enabled/default
-
 sudo service nginx restart
