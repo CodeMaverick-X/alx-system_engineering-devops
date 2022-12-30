@@ -2,5 +2,6 @@
 # fixed a web server configuration that was preventing it from listining
 sudo sed -i 's/8080/80/' /etc/nginx/sites-enabled/default
 sudo sed -i 's/ ipv6only=on//' /etc/nginx/sites-enabled/default
+sudo ufw allow 'Nginx HTTP'
 sudo service nginx restart
-curl 0:80
+
