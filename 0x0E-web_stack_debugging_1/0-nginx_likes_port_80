@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # fixed a web server configuration that was preventing it from listining
+sudo apt install sed
 sudo sed -i 's/8080/80/' /etc/nginx/sites-enabled/default
 sudo sed -i 's/ ipv6only=on//' /etc/nginx/sites-enabled/default
 sudo service nginx restart
