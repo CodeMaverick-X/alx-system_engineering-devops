@@ -12,7 +12,7 @@ echo 'Hello World!' > /usr/share/nginx/html/index.html
 redct="location /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
 
 sed -i "s|# concurs with nginx's one|$redct|" /etc/nginx/sites-available/default
-sudo sed -i "/server_name _;/c\ \tserver_name _;\n\t# define an error page \n\terror_page 404 /404.html;" /etc/nginx/sites-available/default
+sudo sed -i "/server_name _;/c\ \tserver_name _;\n\t# define an error page \n\terror_page 404 /error-page.html;" /etc/nginx/sites-available/default
 sudo chown -R "$USER":"$USER" /var/www/
 echo "Ceci n'est pas une page" > /var/www/html/error-page.html
 sudo chmod 644 /var/www/html/error-page.html
