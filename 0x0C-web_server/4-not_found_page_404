@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# configure new server with custom 404 page
+sudo apt update
+sudo apt install nginx -y
+sudo ufw allow 'Nginx HTTP'
+sudo service nginx start
+sudo chown -R "$USER":"$USER" /var/www
+echo 'Hello World!' > /var/www/html/index.html
+sudo chown -R "$USER":"$USER" /etc/nginx/sites-available/
+sudo sed -i "/server_name _;/c\ \tserver_name _;\n\t# define an error page \n\terror_page 404 /404.html;" /etc/nginx/sites-available/default
+sudo chown -R "$USER":"$USER" /var/www/
+echo "Ceci n'est pas une page" > /var/www/html/error-page.html
+sudo chmod 644 /var/www/html/error-page.html
+sudo service nginx restart
