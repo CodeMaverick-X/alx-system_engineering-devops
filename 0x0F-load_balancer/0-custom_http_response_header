@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
-# script to install nginx on a server
-# configure response header to track server
-
+# Double the number of webservers
+# update packages local DB
 sudo apt update
-sudo apt install -y nginx
+# install nginx package
+sudo apt install nginx -y
+# allow port 80
+sudo ufw allow 'Nginx HTTP'
+# start nginx
 sudo service nginx start
+# set www directory owner
 sudo chown -R "$USER":"$USER" /var/www
-sudo echo 'Hello World!' > /usr/share/nginx/html/index.html
-sudo echo 'Hello World!' > /var/www/html/index.html
-
-header="# Basic Settings\n\tadd_header X-Served-By `hostname`;"
-
-sudo sed -i "s|# Basic Settings|$header|" /etc/nginx/nginx.conf
-
-sudo nginx -s reload
+# set default response file
+echo 'Hello World!' > /var/www/html/index.html
+sudo chown -R "$USER":"$USER" /etc/nginx/sites-available/
+sudo sed -i "/server_name _;/c\ \tserver_name _;\n\tadd_header X-Served-By \$hostname;\n" /etc/nginx/sites-available/default
+# restart nginx
+sudo service nginx restart
