@@ -15,8 +15,8 @@ frontend haproxynode
 
 backend backendnodes
         balance roundrobin
-        server 56580-web-01 54.236.25.236:80 check
-        server 56580-web-02 54.173.164.226:80 check
+        server 56580-web-01 100.25.110.75:80 check
+        server 56580-web-02 52.91.149.16:80 check
 "
 
 sudo chown -R "$USER":"$USER" /etc/haproxy/
