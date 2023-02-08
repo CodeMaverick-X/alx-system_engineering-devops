@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""
-this script returns info of an employees to do list
+"""this script returns info of an employees to do list
 using the rest api
 """
-
 import requests
 from sys import argv
 
