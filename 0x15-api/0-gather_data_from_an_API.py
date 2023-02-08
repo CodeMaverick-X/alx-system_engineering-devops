@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""this script returns info of an employees to do list
+"""Return info of an employees to do list
 using the rest api
 """
 import requests
