@@ -25,5 +25,4 @@ if __name__ == '__main__':
             k.update({"completed": j['completed']})
             k.update({"username": user['username']})
             new.append(k)
-        dic = json.dumps({id: new})
-        f.write(dic)
+        json.dump({id: new}, f)
