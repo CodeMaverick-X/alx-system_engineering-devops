@@ -28,4 +28,4 @@ if __name__ == '__main__':
 
     for j in todo:
         if j['completed']:
-            print('     {}'.format(j['title']))
+            print('\t {}'.format(j['title']))
