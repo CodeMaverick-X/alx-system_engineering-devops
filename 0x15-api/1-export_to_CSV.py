@@ -2,9 +2,9 @@
 """Return info of an employees to do list
 using the rest api in csv format.
 """
+import csv
 import requests
 from sys import argv
-import csv
 
 if __name__ == '__main__':
     id = argv[1]
@@ -16,7 +16,6 @@ if __name__ == '__main__':
 
     todo = res_todo.json()
     user = res_user.json()
-
 
     with open('{}.csv'.format(id), 'w') as f:
         writer = csv.writer(f)
