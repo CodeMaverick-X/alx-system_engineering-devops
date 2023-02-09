@@ -18,11 +18,12 @@ if __name__ == '__main__':
     user = res_user.json()
 
     with open('{}.csv'.format(id), 'w') as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, delimiter=",", quotechar='"',
+                            quoting=csv.QUOTE_ALL)
         for j in todo:
             todo_com_l = []
             todo_com_l.append(user['id'])
             todo_com_l.append(user['name'])
             todo_com_l.append(j['completed'])
             todo_com_l.append(j['title'])
-            writer.writerow(todo_com_l)
+            writer.writerow(todo_com_l,)
