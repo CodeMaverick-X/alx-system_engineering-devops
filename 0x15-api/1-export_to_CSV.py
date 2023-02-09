@@ -22,5 +22,5 @@ if __name__ == '__main__':
                             quoting=csv.QUOTE_ALL)
         for j in todo:
             data = [user['id'], user['username'], j['completed'],
-                        j['title']]
+                    j['title']]
             writer.writerow(data)
