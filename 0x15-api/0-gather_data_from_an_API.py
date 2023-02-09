@@ -23,9 +23,8 @@ if __name__ == '__main__':
         total = total + 1
         if i['completed']:
             done = done + 1
-
-    print('Employee {} is done\
-    with tasks({}/{}):'.format(user['name'], done, total))
+    msg = 'Employee {} is done with tasks({}/{}):'
+    print(msg.format(user['name'], done, total))
 
     for j in todo:
         if j['completed']:
