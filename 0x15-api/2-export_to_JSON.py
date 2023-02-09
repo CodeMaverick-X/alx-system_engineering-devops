@@ -19,8 +19,8 @@ if __name__ == '__main__':
 
     with open('{}.json'.format(id), 'w') as f:
         new = []
-        k = {}
         for j in todo:
+            k = {}
             k.update({"task": j['title']})
             k.update({"completed": j['completed']})
             k.update({"username": user['username']})
