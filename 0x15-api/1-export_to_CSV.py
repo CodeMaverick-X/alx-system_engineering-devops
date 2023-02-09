@@ -21,9 +21,6 @@ if __name__ == '__main__':
         writer = csv.writer(f, delimiter=",", quotechar='"',
                             quoting=csv.QUOTE_ALL)
         for j in todo:
-            todo_com_l = []
-            todo_com_l.append(user['id'])
-            todo_com_l.append(user['name'])
-            todo_com_l.append(j['completed'])
-            todo_com_l.append(j['title'])
-            writer.writerow(todo_com_l,)
+            data = [user['id'], user['username'], j['completed'],
+                        j['title']]
+            writer.writerow(data)
