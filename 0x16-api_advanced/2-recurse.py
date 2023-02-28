@@ -29,6 +29,8 @@ def recurse(subreddit, hot_list=[], anchor=""):
     # print(anchor)
     # print(hot_list)
     if anchor:
-        recurse(subreddit, hot_list, anchor)
-    else:
+        hot_list = recurse(subreddit, hot_list, anchor)
+    if hot_list:
         return hot_list
+    else:
+        None
