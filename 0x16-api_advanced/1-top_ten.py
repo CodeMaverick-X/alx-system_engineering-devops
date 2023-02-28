@@ -24,4 +24,4 @@ def top_ten(subreddit):
         for items in children:
             print(items.get('data').get('title'))
     else:
-        return print(None)
+        return print(N'https://www.reddit.com/r/{}/hot.json'.format(subreddit)one)
