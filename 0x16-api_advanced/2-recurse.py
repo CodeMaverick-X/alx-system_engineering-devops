@@ -1,32 +1,29 @@
 #!/usr/bin/python3
-""" Recurse it!"""
-import requests
+"""Module for task 2"""
 
 
-def recurse(subreddit, hot_list=[]):
-    """returns a list containing the titles of all hot articles
-    for a given subreddit"""
+def recurse(subreddit, hot_list=[], count=0, after=None):
+    """Queries the Reddit API and returns all hot posts
+    of the subreddit"""
+    import requests
 
-    api = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    headers = {'User-Agent': 'Alx-Project by jude'}
-    params = {'limit': 1}
-    if len(hot_list) > 0:
-        after = list(hot_list[-1].keys())[0]
-        params['after'] = after
-
-    response = requests.get(api, headers=headers, allow_redirects=False,
-                            params=params)
-
-    if response.status_code == 200:
-        data_wrapper = response.json()
-        record = data_wrapper.get('data')
-        title = record.get('children')[0].get('data').get('title')
-        next = record.get('after')
-        if next:
-            hot_list.append({next: title})
-            recurse(subreddit, hot_list)
-        else:
-            hot_list = [title for title in list(hot_list.values())]
-            return hot_list
-    else:
+    sub_info = requests.get("https://www.reddit.com/r/{}/hot.json"
+                            .format(subreddit),
+                            params={"count": count, "after": after},
+                            headers={"User-Agent": "My-User-Agent"},
+                            allow_redirects=False)
+    if sub_info.status_code >= 400:
         return None
+
+    hot_l = hot_list + [child.get("data").get("title")
+                        for child in sub_info.json()
+                        .get("data")
+                        .get("children")]
+
+    info = sub_info.json()
+    if not info.get("data").get("after"):
+        return hot_l
+
+    return recurse(subreddit, hot_l, info.get("data").get("count"),
+                   info.get("data").get("after"))
+
